@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Workout Plan Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Personalized Workout Plan Generator</h1>
+        <form method="POST">
+            <div class="form-group">
+                <label>Age:</label><input type="number" name="age" required>
+            </div>
+            <div class="form-group">
+                <label>Gender:</label>
+                <select name="gender">
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Weight (kg):</label><input type="text" name="weight" required>
+            </div>
+            <div class="form-group">
+                <label>Height (m):</label><input type="text" name="height" required>
+            </div>
+            <div class="form-group">
+                <label>Max BPM:</label><input type="number" name="max_bpm" required>
+            </div>
+            <div class="form-group">
+                <label>Avg BPM:</label><input type="number" name="avg_bpm" required>
+            </div>
+            <div class="form-group">
+                <label>Resting BPM:</label><input type="number" name="resting_bpm" required>
+            </div>
+            <div class="form-group">
+                <label>Session Duration (hours):</label><input type="text" name="duration" required>
+            </div>
+            <div class="form-group">
+                <label>Fat Percentage:</label><input type="text" name="fat" required>
+            </div>
+            <div class="form-group">
+                <label>Water Intake (liters):</label><input type="text" name="water" required>
+            </div>
+            <div class="form-group">
+                <label>Workout Frequency (days/week):</label><input type="number" name="freq" required>
+            </div>
+            <div class="form-group">
+                <label>Experience Level (1–5):</label><input type="number" name="exp" required>
+            </div>
+            <div class="form-group">
+                <label>BMI:</label><input type="text" name="bmi" required>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Generate Plan">
+            </div>
+        </form>
+
+        {% if prediction %}
+            <div class="result">
+                <h2>Your Recommended Workout Plan:</h2>
+                <p><strong>{{ prediction }}</strong></p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
